@@ -1,23 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
 
-function App() {
+const App = () => {
+  const [url, setUrl] = useState("");
+  const [result, setResult] = useState("");
+  const [urls, setUrls] = useState([]);
+
+  const handleChange = event => {
+    setUrl(event.target.value)
+  }
+
+  const addUrl = url => {
+    let copyOfUrls = [...urls, url]
+    setUrls(copyOfUrls)
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(url)
+
+    fetch("http://localhost:3000/url", {
+      method: "POST",
+      headers: {
+        "Content-type": "Application/json"
+      },
+      body: JSON.stringify({
+        url
+      })
+    })
+    .then(response => response.json())
+    .then(res => {
+      console.log(res)
+      debugger
+      setResult(res)
+      setUrl("")
+      addUrl(url)
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to the frontend!</h1>
+      <form onSubmit={handleSubmit}>
+        <label>Input your url</label>
+        <input onChange={handleChange} value={url} />
+        <input type="submit" value="Send to the backend!" />
+      </form>
+      <div>
+        <h2>Result</h2>
+        <p>{result}</p>
+      </div>
+      <div>
+        <h2>Here are your previous urls</h2>
+        <ul>
+          {urls && urls.map((url, index) => {
+            return <li key={index}>{url}</li>
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
