@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const https = require('https');
 const cors = require('cors');
+const parseText = require('../utils/parseText')
 
 router.use(cors());
 router.use(express.json());
@@ -22,9 +23,9 @@ router.post('/url', (request, response) => {
         })
 
         res.on('end', () => {
-            let urlResponse = data
+            let wordProcessing = parseText(data)
 
-            response.send(urlResponse)
+            response.send(wordProcessing)
         })
     }).on('error', error => {
         response.send("Error:", error.message)
