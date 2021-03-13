@@ -19,7 +19,7 @@ describe('parseText', () => {
         })
     })
 
-    test('of many returns the correct count', () => {
+    test('of many sentences returns the correct count', () => {
         expect(parseText("Tell the audience what you're going to say. Say it. Then tell them what you've said."))
         .toStrictEqual({
             tell: 2,
@@ -38,7 +38,7 @@ describe('parseText', () => {
         })
     })
 
-    test('of one sentence to return the correct count', () => {
+    test('of one quote to return the correct count', () => {
         expect(parseText("\"Hello World!\""))
         .toStrictEqual({
             hello: 1,
@@ -46,7 +46,7 @@ describe('parseText', () => {
         })
     })
 
-    test('of many sentences to return the correct count', () => {
+    test('of many quotes to return the correct count', () => {
         expect(parseText("\"Tell the audience what you're going to say. Say it.\" Say it. \"Then tell them what you've said.\""))
         .toStrictEqual({
             tell: 2,
