@@ -23,6 +23,7 @@ router.post('/url', (request, response) => {
         })
 
         res.on('end', () => {
+            console.log(typeof data)
             let wordProcessing = parseText(data)
 
             response.send(wordProcessing)
