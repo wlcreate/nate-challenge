@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import UserHistory from "./Components/UserHistory"
 
 const App = () => {
   const [url, setUrl] = useState("");
@@ -17,7 +18,7 @@ const App = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    fetch("http://localhost:3000/url", {
+    fetch("http://localhost:8080/url", {
       method: "POST",
       headers: {
         "Content-type": "Application/json"
@@ -43,14 +44,7 @@ const App = () => {
         <input onChange={handleChange} value={url} />
         <input type="submit" value="Send to the backend" />
       </form>
-      <div>
-        <h2>Here are your previous urls</h2>
-        <ul>
-          {urls && urls.map((url, index) => {
-            return <li key={index}>{url}</li>
-          })}
-        </ul>
-      </div>
+      <UserHistory urls={urls}/>
       <div>
         <h2>Result</h2>
         {result && Object.keys(result).map((key, i) => {
