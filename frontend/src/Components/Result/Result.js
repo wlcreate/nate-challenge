@@ -8,7 +8,7 @@ const Result = (props) => {
 
     const rowData = Object.keys(result).map((key, i) => {
         return <p key={i}>
-            Text: {key} Occurrences: {result[key]}
+            {key}: {result[key]}
         </p>
     })
 
@@ -16,9 +16,9 @@ const Result = (props) => {
         <div>
             <h2>Result</h2>
             <List
-                height={300}
+                height={400}
                 itemCount={Object.keys(result).length}
-                itemSize={25}
+                itemSize={30}
                 width={400}
                 itemData={rowData}
                 {...props}
