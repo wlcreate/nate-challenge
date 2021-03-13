@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import UserHistory from "./Components/UserHistory"
+import UserHistory from "./Components/UserHistory/UserHistory"
 
 const App = () => {
   const [url, setUrl] = useState("");
