@@ -30,7 +30,6 @@ const App = () => {
     .then(response => response.json())
     .then(res => {
       console.log(res)
-      debugger
       setResult(res)
       setUrl("")
       addUrl(url)
@@ -46,16 +45,21 @@ const App = () => {
         <input type="submit" value="Send to the backend!" />
       </form>
       <div>
-        <h2>Result</h2>
-        <p>{result}</p>
-      </div>
-      <div>
         <h2>Here are your previous urls</h2>
         <ul>
           {urls && urls.map((url, index) => {
             return <li key={index}>{url}</li>
           })}
         </ul>
+      </div>
+      <div>
+        <h2>Result</h2>
+        {result && Object.keys(result).map((key, i) => {
+          return <p key={i}>
+            <span>Key Name: {key} </span>
+            <span>Value: {result[key]}</span>
+          </p>
+        })}
       </div>
     </div>
   );
