@@ -13,7 +13,7 @@ router.get('/', (request, response) => {
 
 router.post('/url', (request, response) => {
     let url = request.body.url
-    console.log("request.body.url:", url)
+    console.log("url:", url)
 
     https.get(`${url}`, res => {
         let data = ''

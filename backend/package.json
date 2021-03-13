@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --coverage",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -19,6 +19,7 @@
     "nodemon": "^2.0.7"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "verbose": true
   }
 }

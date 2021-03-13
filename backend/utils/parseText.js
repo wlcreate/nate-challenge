@@ -1,8 +1,16 @@
 const parseText = string => {
-    let removePunctuation = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"]/g, "").toLowerCase()
-    let removeExtraSpaces = removePunctuation.replace(/\s{2,}/g," ")
-    let wordsArray = removeExtraSpaces.split(" ")
     let output = {}
+
+    let removePunctuation = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"\[\]]/g, "").toLowerCase()
+    let removeNums = removePunctuation.replace(/[0-9]/g, "")
+    let removeExtraSpaces = removeNums.trim().replace(/\s{2,}/g," ")
+
+    // After removing everything, if don't find something other than a space it means it's empty
+    if (!/\S/.test(removeExtraSpaces)) {
+        return output
+    }
+
+    let wordsArray = removeExtraSpaces.split(" ")
    
     if (string.length > 0) {
         for (let i = 0; i < wordsArray.length; i++) {

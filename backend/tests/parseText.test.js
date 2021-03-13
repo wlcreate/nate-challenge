@@ -64,4 +64,17 @@ describe('parseText', () => {
             said: 1
         })
     })
+
+    test('of numbers to return nothing', () => {
+        expect(parseText("1, 2, 3, 10")).toStrictEqual({})
+    })
+
+    test('of numbers and words to return only the words with the correct count', () => {
+        expect(parseText("\"5, 4, three, 2, one! Happy 2021!\""))
+        .toStrictEqual({
+            three: 1,
+            one: 1,
+            happy: 1
+        })
+    })
 })
