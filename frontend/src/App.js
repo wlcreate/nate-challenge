@@ -16,7 +16,6 @@ const App = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(url)
 
     fetch("http://localhost:3000/url", {
       method: "POST",
@@ -30,9 +29,9 @@ const App = () => {
     .then(response => response.json())
     .then(res => {
       console.log(res)
-      setResult(res)
       setUrl("")
       addUrl(url)
+      setResult(res)
     })
   }
 
@@ -42,7 +41,7 @@ const App = () => {
       <form onSubmit={handleSubmit}>
         <label>Input your url</label>
         <input onChange={handleChange} value={url} />
-        <input type="submit" value="Send to the backend!" />
+        <input type="submit" value="Send to the backend" />
       </form>
       <div>
         <h2>Here are your previous urls</h2>
@@ -56,8 +55,8 @@ const App = () => {
         <h2>Result</h2>
         {result && Object.keys(result).map((key, i) => {
           return <p key={i}>
-            <span>Key Name: {key} </span>
-            <span>Value: {result[key]}</span>
+            <span>Text: {key} </span>
+            <span>Num of Occurrences: {result[key]}</span>
           </p>
         })}
       </div>
