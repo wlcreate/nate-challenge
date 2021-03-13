@@ -12,13 +12,11 @@ const parseText = string => {
 
     let wordsArray = removeExtraSpaces.split(" ")
    
-    if (string.length > 0) {
-        for (let i = 0; i < wordsArray.length; i++) {
-            if (wordsArray[i] in output) {
-                output[wordsArray[i]] += 1
-            } else {
-                output[wordsArray[i]] = 1
-            }
+    for (let i = 0; i < wordsArray.length; i++) {
+        if (wordsArray[i] in output) {
+            output[wordsArray[i]] += 1
+        } else {
+            output[wordsArray[i]] = 1
         }
     }
 
