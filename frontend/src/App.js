@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import UserHistory from "./Components/UserHistory/UserHistory"
+import UserHistory from "./Components/UserHistory/UserHistory";
+import Result from './Components/Result/Result';
 
 const App = () => {
   const [url, setUrl] = useState("");
@@ -45,15 +46,7 @@ const App = () => {
         <input type="submit" value="Send to the backend" />
       </form>
       <UserHistory urls={urls}/>
-      <div>
-        <h2>Result</h2>
-        {result && Object.keys(result).map((key, i) => {
-          return <p key={i}>
-            <span>Text: {key} </span>
-            <span>Num of Occurrences: {result[key]}</span>
-          </p>
-        })}
-      </div>
+      <Result result={result}/>
     </div>
   );
 }
