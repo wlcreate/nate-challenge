@@ -37,4 +37,31 @@ describe('parseText', () => {
             said: 1
         })
     })
+
+    test('of one sentence to return the correct count', () => {
+        expect(parseText("\"Hello World!\""))
+        .toStrictEqual({
+            hello: 1,
+            world: 1
+        })
+    })
+
+    test('of many sentences to return the correct count', () => {
+        expect(parseText("\"Tell the audience what you're going to say. Say it.\" Say it. \"Then tell them what you've said.\""))
+        .toStrictEqual({
+            tell: 2,
+            the: 1,
+            audience: 1,
+            what: 2,
+            "you're": 1,
+            going: 1,
+            to: 1,
+            say: 3,
+            it: 2,
+            then: 1,
+            them: 1,
+            "you've": 1,
+            said: 1
+        })
+    })
 })
