@@ -1,6 +1,7 @@
 import React from 'react';
 import {FixedSizeList as List} from 'react-window';
 import ResultRow from './ResultRow'
+import './Result.css'
 
 const Result = (props) => {
 
@@ -13,13 +14,13 @@ const Result = (props) => {
     })
 
     return (
-        <div>
+        <div className="result-container">
             <h2>Result</h2>
             <List
                 height={400}
                 itemCount={Object.keys(result).length}
                 itemSize={30}
-                width={400}
+                width={200}
                 itemData={rowData}
                 {...props}
             >

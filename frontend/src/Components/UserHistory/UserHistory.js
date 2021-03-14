@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserHistory.css';
 
 const UserHistory = (props) => {
 

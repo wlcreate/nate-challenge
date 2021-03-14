@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './App.css'
 import UserHistory from "./Components/UserHistory/UserHistory";
 import Result from './Components/Result/Result';
 
@@ -38,11 +39,16 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div>
       <h1>Welcome to the frontend!</h1>
       <form onSubmit={handleSubmit}>
         <label>Input your url</label>
-        <input onChange={handleChange} value={url} />
+        <input
+          type="text"
+          onChange={handleChange} 
+          value={url} 
+          placeholder="url..."
+        />
         <input type="submit" value="Send to the backend" />
       </form>
       <UserHistory urls={urls}/>
