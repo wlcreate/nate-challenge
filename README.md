@@ -19,3 +19,14 @@
 5. `npm install` in both to get all dependencies
 6. In the tab for the backend, start the server with `npm start`
 7. In the tab for the frontend, run the app with `npm start`
+
+## Testing
+In the respective terminal tab:
+
+### Backend 
+* run tests with `npm test`
+* to see the test coverage report `open coverage/lcov-report/index.html`
+
+### Frontend
+* run tests with `CI=true npm test -- --coverage`
+* to see the test coverage report `open coverage/lcov-report/index.html`
