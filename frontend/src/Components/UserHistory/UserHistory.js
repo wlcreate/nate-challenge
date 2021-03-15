@@ -3,7 +3,7 @@ import './UserHistory.css';
 
 const UserHistory = (props) => {
 
-    const urlsArray = props.urls
+    const urlsArray = props.history
 
     return (
         <div>

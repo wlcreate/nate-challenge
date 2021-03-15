@@ -6,15 +6,15 @@ import Result from './Components/Result/Result';
 const App = () => {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState("");
-  const [urls, setUrls] = useState([]);
+  const [history, setHistory] = useState([]);
 
   const handleChange = event => {
     setUrl(event.target.value)
   }
 
   const addUrl = url => {
-    let copyOfUrls = [...urls, url]
-    setUrls(copyOfUrls)
+    let copyOfUrls = [...history, url]
+    setHistory(copyOfUrls)
   }
 
   const handleSubmit = event => {
@@ -47,12 +47,12 @@ const App = () => {
           type="text"
           onChange={handleChange} 
           value={url} 
-          placeholder=""
+          placeholder="ex: https://example.com/large.txt"
           required
         />
         <input type="submit" value="Send to the backend" />
       </form>
-      <UserHistory urls={urls}/>
+      <UserHistory history={history}/>
       <Result result={result}/>
     </div>
   );
