@@ -14,10 +14,10 @@ const parseText = string => {
     let wordsArray = removeExtraSpaces.split(" ")
    
     for (let i = 0; i < wordsArray.length; i++) {
-        if (wordsArray[i] in output) {
+        if (wordsArray[i] in output) { // if the word is already in output as a key, increase the value of the key by 1
             output[wordsArray[i]] += 1
         } else {
-            output[wordsArray[i]] = 1
+            output[wordsArray[i]] = 1 // if the word is not in output as a key, create it as a key with the value of 1
         }
     }
 
