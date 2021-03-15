@@ -4,7 +4,7 @@ import {render} from '@testing-library/react'
 import UserHistory from './UserHistory'
 
 describe('urls', () => {
-  test('renders nothing if there is no user history', () => {
+  test('renders <p> that lets the user know there is no history if there is no user history', () => {
     const props = {
       urls: []
     }
@@ -13,12 +13,14 @@ describe('urls', () => {
       <UserHistory {...props}/>
     )
   
-    expect(component.container).toHaveTextContent(
-      "Here are your previous urls"
+    const content = component.container.querySelector('p')
+
+    expect(content).toHaveTextContent(
+      "You don't have any urls!"
     )
   })
 
-  test('renders content if there are urls', () => {
+  test('renders <li> for each url if there is a user history', () => {
     const props = {
       urls: ["hello", "goodbye", "world"]
     }

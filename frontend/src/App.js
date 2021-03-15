@@ -31,7 +31,6 @@ const App = () => {
     })
     .then(response => response.json())
     .then(res => {
-      console.log(res)
       setUrl("")
       addUrl(url)
       setResult(res)
@@ -42,12 +41,14 @@ const App = () => {
     <div>
       <h1>Welcome to the frontend!</h1>
       <form onSubmit={handleSubmit}>
-        <label>Input your url</label>
+        <h2>Make a Request</h2>
+        <label htmlFor="url">Input your url</label>
         <input
           type="text"
           onChange={handleChange} 
           value={url} 
-          placeholder="url..."
+          placeholder=""
+          required
         />
         <input type="submit" value="Send to the backend" />
       </form>

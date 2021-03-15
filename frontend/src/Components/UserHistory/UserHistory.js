@@ -8,11 +8,17 @@ const UserHistory = (props) => {
     return (
         <div>
             <h2>Here are your previous urls</h2>
-            <ul>
-                {urlsArray && urlsArray.map((url, index) => {
-                    return <li key={index}>{url}</li>
-                })}
-            </ul>
+            {
+                urlsArray.length === 0
+                ?
+                <p>You don't have any urls!</p>
+                :
+                <ul>
+                    {urlsArray && urlsArray.map((url, index) => {
+                        return <li key={index}>{url}</li>
+                    })}
+                </ul>
+            }
       </div>
     )
 }
