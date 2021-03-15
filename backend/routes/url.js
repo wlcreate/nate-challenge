@@ -13,7 +13,6 @@ router.get('/', (request, response) => {
 
 router.post('/url', (request, response) => {
     let url = request.body.url
-    console.log("url:", url)
 
     https.get(`${url}`, res => {
         let data = ''
@@ -23,7 +22,6 @@ router.post('/url', (request, response) => {
         })
 
         res.on('end', () => {
-            console.log(typeof data)
             let wordProcessing = parseText(data)
 
             response.send(wordProcessing)
