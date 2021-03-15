@@ -6,7 +6,7 @@ import UserHistory from './UserHistory'
 describe('urls', () => {
   test('renders <p> that lets the user know there is no history if there is no user history', () => {
     const props = {
-      urls: []
+      history: []
     }
 
     const component = render(
@@ -22,7 +22,7 @@ describe('urls', () => {
 
   test('renders <li> for each url if there is a user history', () => {
     const props = {
-      urls: ["hello", "goodbye", "world"]
+      history: ["hello", "goodbye", "world"]
     }
 
     const component = render(
